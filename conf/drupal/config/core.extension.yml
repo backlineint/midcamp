@@ -21,9 +21,12 @@ module:
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
+  entity: 0
   entity_reference_revisions: 0
+  entityqueue: 0
   field: 0
   field_group: 0
+  field_permissions: 0
   field_ui: 0
   file: 0
   filter: 0
@@ -38,7 +41,11 @@ module:
   mailchimp_campaign: 0
   mailchimp_lists: 0
   mailchimp_signup: 0
+  media_entity: 0
   menu_ui: 0
+  metatag: 0
+  metatag_open_graph: 0
+  midcamp_vbo: 0
   name: 0
   node: 0
   options: 0
@@ -48,6 +55,7 @@ module:
   r4032login: 0
   rdf: 0
   recaptcha: 0
+  redirect: 0
   scheduler: 0
   search: 0
   shortcut: 0
@@ -60,8 +68,13 @@ module:
   twig_extensions: 0
   update: 0
   user: 0
+  video_embed_field: 0
+  video_embed_media: 0
   views_ui: 0
   viewsreference: 0
+  webform: 0
+  webform_ui: 0
+  contribute: 1
   menu_link_content: 1
   pathauto: 1
   views: 10

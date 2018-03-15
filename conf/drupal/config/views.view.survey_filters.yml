@@ -1,17 +1,15 @@
-uuid: 6b90bc06-3126-4f80-8726-fb2ca84750f5
+uuid: 39db6dc0-9ed0-498a-842c-98d30fbee18b
 langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.tags
-  content:
-    - 'taxonomy_term:tags:85a7b055-8ad6-49a5-984d-47064d30069b'
+    - node.type.topic
+    - node.type.training
   module:
     - node
-    - taxonomy
     - user
-id: planet_drupal
-label: 'Planet Drupal'
+id: survey_filters
+label: 'Sessions Entityreference'
 module: views
 description: ''
 tag: ''
@@ -142,14 +140,51 @@ display:
           expose:
             operator: ''
           group: 1
-        tid:
-          id: tid
-          table: taxonomy_index
-          field: tid
+        type:
+          id: type
+          table: node_field_data
+          field: type
           value:
-            - 1
-          vid: tags
-          plugin_id: taxonomy_index_tid
+            topic: topic
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        field_accepted_confirmed_value:
+          id: field_accepted_confirmed_value
+          table: node__field_accepted_confirmed
+          field: field_accepted_confirmed_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
       sorts:
         created:
           id: created
@@ -178,27 +213,31 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  feed_1:
-    display_plugin: feed
-    id: feed_1
-    display_title: Feed
+  entity_reference_1:
+    display_plugin: entity_reference
+    id: entity_reference_1
+    display_title: Sessions
     position: 1
     display_options:
       display_extenders: {  }
-      row:
-        type: node_rss
-        options: {  }
-      path: planet-drupal.rss
+      style:
+        type: entity_reference
+        options:
+          search_fields:
+            title: title
+      pager:
+        type: none
+        options:
+          offset: 0
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

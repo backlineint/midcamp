@@ -4,14 +4,23 @@ status: true
 dependencies:
   config:
     - field.field.node.topic.body
+    - field.field.node.topic.field_accepted_confirmed
     - field.field.node.topic.field_event
+    - field.field.node.topic.field_meta_tags
     - field.field.node.topic.field_people
+    - field.field.node.topic.field_presenter_slides
+    - field.field.node.topic.field_schedule_location
+    - field.field.node.topic.field_schedule_time
     - field.field.node.topic.field_topic_type
     - field.field.node.topic.field_track
+    - field.field.node.topic.field_video
     - node.type.topic
   module:
+    - datetime_range
+    - file
     - text
     - user
+    - video_embed_field
 id: node.topic.default
 targetEntityType: node
 bundle: topic
@@ -20,32 +29,66 @@ content:
   body:
     label: hidden
     type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_people:
+    type: entity_reference_entity_view
+    weight: 4
+    region: content
+    label: above
+    settings:
+      view_mode: compact
+      link: false
+    third_party_settings: {  }
+  field_presenter_slides:
+    weight: 5
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_schedule_location:
     weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  content_moderation_control:
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_topic_type:
-    weight: 0
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_schedule_time:
+    weight: 0
+    label: above
+    settings:
+      timezone_override: America/Chicago
+      format_type: day_and_time
+      separator: '-'
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
   field_track:
-    weight: 2
+    weight: 5
     label: inline
     settings:
       link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_video:
+    weight: 3
+    label: hidden
+    settings:
+      responsive: true
+      width: 854
+      height: 480
+      autoplay: false
+    third_party_settings: {  }
+    type: video_embed_field_video
+    region: content
 hidden:
+  field_accepted_confirmed: true
   field_event: true
-  field_people: true
+  field_meta_tags: true
+  field_topic_type: true
   links: true

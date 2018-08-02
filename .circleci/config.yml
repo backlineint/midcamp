@@ -27,3 +27,21 @@ jobs:
 
       - store_test_results:
           path: $TEST_RESULTS
+
+  test:
+    working_directory: /var/www/drupal/public_html
+
+    docker:
+    - image: amazeeio/drupal:php71-basic
+      user: drupal
+
+    steps:
+      - run: vendor/bin/behat
+
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+    - build
+    - test

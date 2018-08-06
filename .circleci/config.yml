@@ -21,19 +21,11 @@ jobs:
           paths:
             - vendor
 
+      - run: vendor/bin/behat
+
       - store_artifacts:
           path: $TEST_RESULTS
           destination: raw-test-output
 
       - store_test_results:
           path: $TEST_RESULTS
-
-  test:
-    working_directory: /var/www/drupal/public_html
-
-    docker:
-    - image: amazeeio/drupal:php71-basic
-      user: drupal
-
-    steps:
-      - run: vendor/bin/behat

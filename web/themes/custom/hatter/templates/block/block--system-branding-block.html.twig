@@ -24,7 +24,9 @@
             </a>
           {% endif %}
           {% if site_name %}
-            <h1 class="event__title">{{ site_name }}</h1>
+            {# Revert to site_name after the O'MidCamp era #}
+            {#<h1 class="event__title">{{ site_name }}</h1>#}
+            <h1 class="event__title">O'MidCamp</h1>
           {% endif %}
           <h2 class="event__subtitle">{{ site_slogan }}</h2>
           {#<a href="/submit-session" class="event__button button--primary">Submit a Session</a>#}
